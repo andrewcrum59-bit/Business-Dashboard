@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Business Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Business Dashboard</h1>
+    <p class="subtitle">An interactive demo for managing orders. Data is saved in this browser only.</p>
+    <p id="today"></p>
+    <div class="cards">
+    <div class="card" draggable="true">
+    <h2>Total Revenue</h2>
+    <p class="value" id="total-revenue">$0.00</p>
+    <p class="detail">Combined value of all orders</p>
+</div>
+
+<div class="card" draggable="true">
+    <h2>Total Orders</h2>
+    <p class="value" id="total-orders">0</p>
+    <p class="detail">All orders saved in this browser</p>
+</div>
+
+<div class="card" draggable="true">
+    <h2>Customers</h2>
+    <p class="value" id="total-customers">0</p>
+    <p class="detail">Unique customer names across orders</p>
+</div>
+</div>
+<section class="sales">
+    <h2>Monthly Sales</h2>
+    <p>Sample revenue for the last three months</p>
+
+    <div class="sales-row">
+        <span>July</span>
+        <div class="bar-track">
+            <div class="bar july"></div>
+        </div>
+        <span>$15,000</span>
+    </div>
+
+    <div class="sales-row">
+        <span>August</span>
+        <div class="bar-track">
+            <div class="bar august"></div>
+        </div>
+        <span>$20,000</span>
+    </div>
+
+    <div class="sales-row">
+        <span>September</span>
+        <div class="bar-track">
+            <div class="bar september"></div>
+        </div>
+        <span>$24,500</span>
+    </div>
+</section>
+<button id="toggle-orders" type="button" aria-expanded="true">
+    Hide Orders
+</button>
+<section class="order-form">
+    <h2>Add an Order</h2>
+
+    <form id="add-order-form">
+        <label for="customer-name">Customer name</label>
+        <input
+            id="customer-name"
+            type="text"
+            placeholder="Example: Alex Morgan"
+            required
+        >
+
+        <label for="order-amount">Order amount ($)</label>
+        <input
+            id="order-amount"
+            type="number"
+            placeholder="Example: 120.00"
+            min="0.01"
+            step="0.01"
+            required
+        >
+
+        <button type="submit">Add Order</button>
+    </form>
+</section>
+<section class="orders">
+    <h2>Recent Orders</h2>
+    <label for="order-search">Search by customer name</label>
+<input
+    id="order-search"
+    type="search"
+    placeholder="Type a customer name..."
+>
+    <p>Add, search and delete demo orders below.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Order</th>
+                <th>Customer</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#1001</td>
+                <td>Alex Morgan</td>
+                <td>$120</td>
+            </tr>
+            <tr>
+                <td>#1002</td>
+                <td>Jordan Lee</td>
+                <td>$85</td>
+            </tr>
+            <tr>
+                <td>#1003</td>
+                <td>Taylor Smith</td>
+                <td>$240</td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="no-orders-message" hidden>No matching orders.</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

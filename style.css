@@ -1,0 +1,337 @@
+body {
+    margin: 0;
+    padding: 32px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.card {
+    padding: 24px;
+    background-color: #1e293b;
+    border-radius: 12px;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.card .value {
+    margin: 8px 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.card .detail {
+    margin: 0;
+    font-size: 16px;
+    color: #94a3b8;
+}
+.subtitle {
+    margin: 8px 0 0;
+    color: #94a3b8;
+    font-size: 16px;
+}
+.orders {
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #1e293b;
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+.orders h2 {
+    margin: 0 0 8px;
+}
+
+.orders p {
+    margin: 0 0 24px;
+    color: #94a3b8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #334155;
+}
+
+th {
+    color: #94a3b8;
+    font-size: 14px;
+}
+#toggle-orders {
+    margin-top: 24px;
+    padding: 12px 20px;
+    background-color: #38bdf8;
+    color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#toggle-orders:hover {
+    background-color: #7dd3fc;
+}
+#today {
+    margin: 8px 0 0;
+    color: #94a3b8;
+    font-size: 14px;
+}
+.sales {
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #1e293b;
+    border-radius: 12px;
+}
+
+.sales h2 {
+    margin: 0 0 8px;
+}
+
+.sales p {
+    margin: 0 0 24px;
+    color: #94a3b8;
+}
+
+.sales-row {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) 70px;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    font-size: 14px;
+}
+
+.bar-track {
+    height: 24px;
+    background-color: #334155;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    background-color: #38bdf8;
+    border-radius: 6px;
+}
+
+.july {
+    width: 60%;
+}
+
+.august {
+    width: 80%;
+}
+
+.september {
+    width: 98%;
+}
+#toggle-orders:focus-visible {
+    outline: 3px solid #f8fafc;
+    outline-offset: 4px;
+}
+/* Make the cards move smoothly */
+.card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Grow the chart bars from left to right */
+.bar {
+    transform-origin: left;
+    animation: grow-bar 1s ease-out both;
+}
+
+.august {
+    animation-delay: 0.15s;
+}
+
+.september {
+    animation-delay: 0.3s;
+}
+
+@keyframes grow-bar {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Respect a visitor's reduced-motion setting */
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .bar {
+        animation: none;
+    }
+}
+.card {
+    cursor: grab;
+}
+
+.card.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.card.drop-target {
+    outline: 2px dashed #38bdf8;
+    outline-offset: 4px;
+}
+.order-form {
+    margin-top: 32px;
+    padding: 24px;
+    background-color: #1e293b;
+    border-radius: 12px;
+}
+
+.order-form h2 {
+    margin: 0 0 20px;
+}
+
+#add-order-form {
+    display: grid;
+    gap: 12px;
+}
+
+#add-order-form input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #64748b;
+    border-radius: 8px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font: inherit;
+}
+
+#add-order-form button {
+    justify-self: start;
+    margin-top: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #38bdf8;
+    color: #0f172a;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#add-order-form input:focus-visible,
+#add-order-form button:focus-visible {
+    outline: 3px solid #f8fafc;
+    outline-offset: 3px;
+}
+#order-search {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 8px 0 20px;
+    padding: 12px;
+    border: 1px solid #64748b;
+    border-radius: 8px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font: inherit;
+}
+
+#order-search:focus-visible {
+    outline: 3px solid #f8fafc;
+    outline-offset: 3px;
+}
+/* Keep padding inside element widths. */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.cards {
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+}
+
+.card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.delete-order {
+    padding: 8px 12px;
+    border: 1px solid #f87171;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #fca5a5;
+    font: inherit;
+    cursor: pointer;
+}
+
+.delete-order:hover {
+    background-color: #7f1d1d;
+    color: #ffffff;
+}
+
+.delete-order:focus-visible {
+    outline: 3px solid #f8fafc;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .card,
+    .sales,
+    .orders,
+    .order-form {
+        padding: 16px;
+    }
+
+    .sales-row {
+        grid-template-columns: 1fr auto;
+    }
+
+    .bar-track {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+}
