@@ -1,5 +1,5 @@
 # Business Dashboard
-
+[View Live Demo](https://andrewcrum59-bit.github.io/Business-Dashboard/)
 An interactive dashboard built with HTML, CSS, and vanilla JavaScript.
 
 Users can add, search, and delete orders. Summary cards calculate
